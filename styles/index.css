@@ -99,16 +99,15 @@ ul {
   display: flex;
   flex-direction: column;
 }
-.pyg_header {
+.layout > .pyg_header {
   height: 45px;
-  background-color: #eee;
-  padding: 4px;
+  padding: 5px;
 }
-.pyg_content {
-  background-color: #0f0;
+.layout > .pyg_content {
   flex: 1;
+  background-color: #f0f;
 }
-.pyg_footer {
+.layout > .pyg_footer {
   height: 45px;
-  background-color: #00f;
+  background-color: #ff0;
 }
