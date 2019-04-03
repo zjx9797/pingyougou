@@ -27,12 +27,33 @@
 
                     </div>
                     <div class="mui-slider-indicator bannerlist">
-                        
+
                     </div>
                 </div>
             </div>
             <div class="pyg_nav">
-                
+                <a href="#">
+                    <img src="https://image2.suning.cn/uimg/cms/img/155411189774023862.gif?format=_is_120w_120h" alt="">
+                    <div>爆款手机</div>
+                </a>
+                <a href="#">
+                    <img src="https://image1.suning.cn/uimg/cms/img/154708800857670247.png?format=_is_120w_120h.webp"
+                        alt="">
+                    <div>苏宁超市</div>
+                </a>
+                <a href="#">
+                    <img src="https://image1.suning.cn/uimg/cms/img/155175138228120594.png?format=_is_120w_120h.webp"
+                        alt="">
+                    <div>生活超市</div>
+                </a>
+                <a href="#">
+                    <img src="https://image2.suning.cn/uimg/cms/img/154708804944582613.png?format=_is_120w_120h.webp"
+                        alt="">
+                    <div>苏宁生鲜</div>
+                </a>
+            </div>
+            <div class="pyg_goodsList">
+
             </div>
         </div>
         <div class="pyg_footer">
@@ -56,8 +77,9 @@
             </nav>
         </div>
     </div>
+
     <script type="text/template" id="pyg_bannerTemp">
-            <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[data.length-1].navigator_url}}"><img src="{{data[data.length-1].image_src}}" /></a></div>
+        <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[data.length-1].navigator_url}}"><img src="{{data[data.length-1].image_src}}" /></a></div>
             {{each data value index}}
             <div class="mui-slider-item"><a href="{{value.navigator_url}}"><img src="{{value.image_src}}" /></a></div>
             {{/each}}
@@ -66,6 +88,25 @@
     <script type="text/template" id="bannerListTemp">
         {{each data value index}}
             <div class="mui-indicator {{index==0?'mui-active':''}}"></div>
+        {{/each}}
+    </script>
+    <script type="text/template" id="goodslistTemp">
+        {{each data value index}}
+        <div class="pyg_pbox clearfix">
+                <img src="{{value.group_img}}" alt="">
+                {{each value.goods value2 index2}}
+                <div class="pyg_sbox">
+                    <a href='javascript:;' class="pyg_good">
+                        <img src="{{value2.goods_small_logo}}"
+                            alt="">
+                        <div class="pyg_desc mui-ellipsis-2">{{value2.goods_name}}</div>
+                        <div class="pyg_price">￥{{value2.goods_price}}</div>
+                    </a>
+                    <a href="javascript:;" type="button"
+                        class="mui-btn mui-btn-primary mui-btn-outlined pyg_btncate">找相似</a>
+                </div>
+                {{/each}}
+        </div>
         {{/each}}
     </script>
     <script src="./lib/mui/js/mui.js"></script>
