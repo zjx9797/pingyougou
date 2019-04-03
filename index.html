@@ -5,70 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
-    <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
-    <link rel="stylesheet" href="./styles/index.css">
     <title>29-品优购</title>
 </head>
 
 <body>
-    <div class="layout">
-        <div class="pyg_header">
-            <div class="mui-input-row mui-search">
-                <input type="search" class="mui-input-clear" placeholder="">
-            </div>
-        </div>
-        <div class="pyg_content">
-            <div class="pyg_banner">
-                <div class="mui-slider">
-                    <div class="mui-slider-group mui-slider-loop pyg_indexbanner">
-
-                    </div>
-                    <div class="mui-slider-indicator">
-                    </div>
-                </div>
-            </div>
-            <div class="pyg_nav"></div>
-            <div class="pyg_goodsList"></div>
-        </div>
-        <div class="pyg_footer">
-            <nav class="mui-bar mui-bar-tab">
-                <a class="mui-tab-item mui-active" href="#tabbar">
-                    <span class="mui-icon mui-icon-home"></span>
-                    <span class="mui-tab-label">首页</span>
-                </a>
-                <a class="mui-tab-item" href="#tabbar-with-chat">
-                    <span class="mui-icon mui-icon-list"></span>
-                    <span class="mui-tab-label">分类</span>
-                </a>
-                <a class="mui-tab-item" href="#tabbar-with-contact">
-                    <span class="fa fa-shopping-cart"></span>
-                    <div class="mui-tab-label" style='font-size: 12px'>购物车</div>
-                </a>
-                <a class="mui-tab-item" href="#tabbar-with-map">
-                    <span class="mui-icon mui-icon-contact"></span>
-                    <span class="mui-tab-label">我的</span>
-                </a>
-            </nav>
-        </div>
-    </div>
-
-    <script type="text/template" id='pyg_bannerTemp'>
-        <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[data.length-1].navigator_url}}"><img src="{{data[data.length-1].image_src}}" /></a></div>
-        {{each data as value index}}
-            <div class="mui-slider-item"><a href="{{value.navigator_url}}"><img src="{{value.image_src}}" /></a></div>
-        {{/each}}
-        <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[0].navigator_url}}"><img src="{{data[0].image_src}}" /></a></div>
-    </script>
-    <script type='text/template' id='indicatorTemp'>
-        {{each data as value index}}
-            <div class="mui-indicator {{index==0?'mui-active':''}}"></div>
-        {{/each}}
-    </script>
-    <script src="./lib/mui/js/mui.js"></script>
-    <script src="./lib/zepto/zepto.js"></script>
-    <script src="./lib/arttemplate/template-web.js"></script>
-    <script src="./js/index.js"></script>
+    
 </body>
 
 </html>
