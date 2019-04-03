@@ -105,7 +105,6 @@ ul {
 }
 .layout > .pyg_content {
   flex: 1;
-  background-color: #f0f;
 }
 .layout > .pyg_footer {
   height: 45px;
