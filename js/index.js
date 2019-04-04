@@ -6,7 +6,7 @@ function banner() {
     $.ajax({
         type: 'get',
         dataType: 'json',
-        url: 'http://157.122.54.189:9094/api/public/v1/home/swiperdata',
+        url: 'home/swiperdata',
         success: function (result) {
             // console.log(result);
             var html = template('pyg_bannerTemp', result);
@@ -24,9 +24,9 @@ function goodsList() {
     $.ajax({
         type:'get',
         dataType:'json',
-        url:'http://157.122.54.189:9094/api/public/v1/home/goodslist',
+        url:'home/goodslist',
         success:function(result) {
-            console.log(result);
+            // console.log(result);
             var goodsHtml=template('goodslistTemp',result);
             $('.pyg_goodsList').html(goodsHtml);
         }
