@@ -159,6 +159,7 @@ ul {
   display: block;
 }
 .layout > .pyg_content .pyg_goodsList .pyg_pbox .pyg_sbox .pyg_good > .pyg_desc {
+  height: 33px;
   color: #333;
   font-size: 13px;
   margin: 5px 0;
