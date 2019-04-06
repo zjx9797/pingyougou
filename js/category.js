@@ -1,8 +1,12 @@
 $(function () {
     render();
+    //定义一个对象储存获取来的数据
     var cateDate;
+    //定义路由函数
     function render() {
+        //将储存的数据变成对象存到cateDate中
         cateDate = JSON.parse(localStorage.getItem('abc'))
+        //判断超过这个世界就重新发起请求
         if (cateDate && Date.now() - cateDate.time < 24 * 60 * 60 * 1000) {
             leftList();
             rightList(0);
@@ -10,7 +14,7 @@ $(function () {
             getList();
         }
     }
-
+    //请求数据并保存数据
     function getList() {
         $('body').addClass('loadding');
         $.get('categories', function (result) {
@@ -25,7 +29,7 @@ $(function () {
             }
         }, 'json')
     }
-
+    //渲染左边列表
     function leftList() {
         var html = template('leftnavTemp', cateDate)
         $('.left ul').html(html)
@@ -37,7 +41,7 @@ $(function () {
             rightList(index);
         })
     }
-
+    //渲染右边列表
     function rightList(index) {
         var rhtml = template('rightListTemp', cateDate.list[index]);
         $('.rightList').html(rhtml);

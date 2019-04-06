@@ -2,6 +2,7 @@ $(function(){
     banner();
     goodsList();
 })
+//封装轮播图ajax请求函数
 function banner() {
     $.ajax({
         type: 'get',
@@ -20,6 +21,7 @@ function banner() {
         }
     })
 };
+//封装一个推荐商品列表ajax请求的函数
 function goodsList() {
     $.ajax({
         type:'get',

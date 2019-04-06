@@ -1,13 +1,16 @@
 $(function(){
+    //侧边菜单的初始化
     $('.mui-icon-search').on('tap',function() {
         mui('.mui-off-canvas-wrap').offCanvas('show');
     });
+    //定义一个全局变量
     var data={
         query:'',
         cid:getParameter(location.search).cid,
         pagenum:1,
         pagesize:10
     };
+    //封装一个ajax请求函数
     function renderList(callback,obj) {
         $.ajax({
             type:'get',
@@ -61,6 +64,7 @@ $(function(){
           }
         }
       });
+      //将网址中的字符串处理下
       function getParameter(url){
         var obj = {}
         url = url.substring(1)
@@ -71,7 +75,7 @@ $(function(){
         }
         return obj
     }
-
+    //点击搜索可以将输入的值赋给query渲染出搜索到的链接
     $('.query_btn').on('tap',function(){
         var obj={};
         obj.query=$('.query_txt').val();
