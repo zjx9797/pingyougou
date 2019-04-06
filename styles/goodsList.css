@@ -154,3 +154,60 @@ ul {
   color: #fff;
   font-weight: 700;
 }
+.pyg_content .search_bar {
+  height: 40px;
+  padding: 5px;
+  position: relative;
+}
+.pyg_content .search_bar > .query_txt {
+  height: 30px;
+  width: 100%;
+  border: none;
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+}
+.pyg_content .search_bar > .query_btn {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  padding: 0;
+}
+.pyg_content .searchList > a {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  color: skyblue;
+  margin-bottom: 3px;
+  margin-left: 4px;
+}
+.pyg_content .goodslist > li {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.pyg_content .goodslist > li > a {
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+}
+.pyg_content .goodslist > li > a > div {
+  width: 50%;
+}
+.pyg_content .goodslist > li > a > div:nth-of-type(1) {
+  padding: 5px 0;
+}
+.pyg_content .goodslist > li > a > div:nth-of-type(1) > img {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.pyg_content .goodslist > li > a > div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.pyg_content .goodslist > li > a > div:nth-of-type(2) span {
+  word-break: break-all;
+}

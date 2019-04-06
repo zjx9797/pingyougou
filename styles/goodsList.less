@@ -8,3 +8,66 @@
         font-weight: 700;
     }
 }
+.pyg_content {
+    .search_bar {
+        height: 40px;
+        padding: 5px;
+        position: relative;
+        >.query_txt {
+            height: 30px;
+            width: 100%;
+            border: none;
+            border: 1px solid #ccc;
+            margin: 0;
+            padding: 0;
+        }
+        > .query_btn {
+            width: 60px;
+            height: 30px;
+            position: absolute;
+            top: 5px;
+            right: 0;
+            padding: 0;
+        }
+    }
+    .searchList {
+        >a {
+            display: block;
+            width: 100%;
+            font-size: 14px;
+            color: skyblue;
+            margin-bottom: 3px;
+            margin-left: 4px;
+        }
+    }
+    .goodslist {
+        >li {
+            width: 100%;
+            margin-bottom: 5px;
+            >a{
+                display: flex;
+                width: 100%;
+                background-color: #fff;
+                >div {
+                    width: 50%;
+                }
+                >div:nth-of-type(1) {
+                    padding: 5px 0;
+                    > img {
+                        width: 80%;
+                        display: block;
+                        margin:  auto;
+                    }
+                }
+                >div:nth-of-type(2) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    span {
+                        word-break: break-all;
+                    }
+                }
+            }
+        }
+    }
+}
