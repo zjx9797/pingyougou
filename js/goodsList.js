@@ -54,9 +54,11 @@ $(function(){
                     if(result.data.goods.length>0) {
                         var html=template('goodslistTemp',result.data);
                         $('.goodslist').append(html);
+                        //如果获取导数据则加载
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh();
                     }
                     else {
+                        //如果获取不到数据则显示没有更多数据了
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
                     }
                 })
@@ -77,10 +79,10 @@ $(function(){
     }
     //点击搜索可以将输入的值赋给query渲染出搜索到的链接
     $('.query_btn').on('tap',function(){
-        var ssval=$('.query_txt').val();
-        var arr = getHistoryData();
-        arr.push(ssval);
-        localStorage.setItem('ssval',JSON.stringify(arr));
+        var ssval=$('.query_txt').val();    //储存输入的val值
+        var arr = getHistoryData();         //将本地储存的字符串数据改为数组形式
+        arr.push(ssval);                    //将输入的数据加入数组中
+        localStorage.setItem('ssval',JSON.stringify(arr));  //将arr数组改为字符串形式再次本地存储
         init();
         var obj={};
         obj.query=$('.query_txt').val();
@@ -89,7 +91,7 @@ $(function(){
             $('.searchList').html(html);
         },obj)
     })
-    $('.ssbc').on('tap','span',function(){
+    $('.ssbc').on('tap','span',function(){      //委托事件，点击span也能执行点击搜索操作，将传给query的值改成span里的内容再渲染到页面
         var obj={};
         obj.query=$(this).text();
         renderList(function(result){
@@ -97,11 +99,11 @@ $(function(){
             $('.searchList').html(html);
         },obj)
     })
-    $('.qingchu_btn').on('tap',function(){
+    $('.qingchu_btn').on('tap',function(){      //点击清除后将本地储存的删除掉并再渲染一遍变成空，不重新渲染则会需要刷新才能看到清除掉会效果很不好
         localStorage.removeItem('ssval');
         init();
     })
-    function init(){
+    function init(){                        //将数据改成数组遍历渲染到页面中
         var arr = getHistoryData();
         var html='';
         for(var i=0;i<arr.length;i++) {
@@ -116,6 +118,6 @@ $(function(){
         // 将其转换为数组:一开始的时候没有当前存储的历史数据所对应的key,为了避免以后的错误，这里返回一个空值数组
         var dataArr = JSON.parse(dataStr || '[]')
         // 返回
-        return dataArr
+        return dataArr;
     }
 })
