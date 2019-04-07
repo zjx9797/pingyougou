@@ -38,7 +38,7 @@ $(function(){
                 renderList(function(result){
                     var html=template('goodslistTemp',result.data);
                     $('.goodslist').html(html);
-                    mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+                    mui('#refreshContainer').pullRefresh().endPulldownToRefresh(); 
                     mui('#refreshContainer').pullRefresh().refresh(true)
                 })
             }
@@ -77,6 +77,11 @@ $(function(){
     }
     //点击搜索可以将输入的值赋给query渲染出搜索到的链接
     $('.query_btn').on('tap',function(){
+        var ssval=$('.query_txt').val();
+        var arr = getHistoryData();
+        arr.push(ssval);
+        localStorage.setItem('ssval',JSON.stringify(arr));
+        init();
         var obj={};
         obj.query=$('.query_txt').val();
         renderList(function(result){
@@ -84,4 +89,33 @@ $(function(){
             $('.searchList').html(html);
         },obj)
     })
+    $('.ssbc').on('tap','span',function(){
+        var obj={};
+        obj.query=$(this).text();
+        renderList(function(result){
+            var html=template('searchTemp',result.data);
+            $('.searchList').html(html);
+        },obj)
+    })
+    $('.qingchu_btn').on('tap',function(){
+        localStorage.removeItem('ssval');
+        init();
+    })
+    function init(){
+        var arr = getHistoryData();
+        var html='';
+        for(var i=0;i<arr.length;i++) {
+            html+='<span>'+arr[i]+'</span>';
+        }
+        $('.ssbc').html(html);
+    }
+    init();
+    function getHistoryData(){
+        // 获取本地存储的字符串数据
+        var dataStr = localStorage.getItem('ssval')
+        // 将其转换为数组:一开始的时候没有当前存储的历史数据所对应的key,为了避免以后的错误，这里返回一个空值数组
+        var dataArr = JSON.parse(dataStr || '[]')
+        // 返回
+        return dataArr
+    }
 })

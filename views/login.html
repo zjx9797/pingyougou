@@ -8,28 +8,30 @@
     <link rel="stylesheet" href="../lib/mui/css/mui.min.css">
     <link rel="stylesheet" href="../lib/mui/css/font-mui-icons-extra.css">
     <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
-    <link rel="stylesheet" href="../styles/category.css">
     <title>品优购</title>
 </head>
 
 <body>
     <div class="layout">
-        <div class="pyg_header">
-            <div class="mui-input-row mui-search">
-                <input type="search" class="mui-input-clear" placeholder="">
-            </div>
-        </div>
-        <div class="pyg_content">
-            <div class="left">
-                <ul>
-                   
-                </ul>
-            </div>
-            <div class="right">
-                <div class="rightList">
-                    
-                </div>
-            </div>
+            <header id="header" class="mui-bar mui-bar-nav pyg_header">
+                    <h1 class="mui-title">登录</h1>
+                    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:;"></a>
+            </header>
+        <div class="pyg_content" style="padding-top:45px">
+                <form class="mui-input-group">
+                        <div class="mui-input-row">
+                            <label>手机</label>
+                            <input type="text" placeholder="请输入手机号" class="username" value="13112345678">
+                        </div>
+                        <div class="mui-input-row">
+                            <label>密码</label>
+                            <input type="password" class="mui-input-clear password" placeholder="请输入密码" data-input-clear="5" value="123456"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+                        </div>
+                        <div class="mui-button-row">
+                            <button type="button" class="mui-btn mui-btn-primary" onclick="return false;">登录</button>&nbsp;&nbsp;
+                            <button type="button" class="mui-btn mui-btn-danger" onclick="return false;">注册</button>
+                        </div>
+                    </form>
         </div>
         <div class="pyg_footer">
             <nav class="mui-bar mui-bar-tab">
@@ -37,7 +39,7 @@
                     <span class="mui-icon mui-icon-home"></span>
                     <span class="mui-tab-label">首页</span>
                 </a>
-                <a class="mui-tab-item mui-active" href="./category.html">
+                <a class="mui-tab-item" href="./category.html">
                     <span class="mui-icon mui-icon-list"></span>
                     <span class="mui-tab-label">分类</span>
                 </a>
@@ -52,37 +54,11 @@
             </nav>
         </div>
     </div>
-    <!-- 渲染左边列表模板 -->
-    <script type="text/template" id="leftnavTemp">
-        {{each list value index}}
-        <li class="{{index==0?'active':''}}">
-                <a href="#">{{value.cat_name}}</a>
-        </li>
-        {{/each}}
-    </script>
-    <!-- 渲染右边商品列表模板 -->
-    <script type="text/template" id="rightListTemp">
-        {{each children value index}}
-        <div class="cate2">
-            <div class="cate2_title">{{value.cat_name}}</div>
-            <div class="cate2_content">
-                {{each value.children v i}}
-                <a href="goodsList.html?cid={{v.cat_id}}">
-                    <img src="http://157.122.54.189:9094{{v.cat_icon}}"
-                        alt="">
-                    <span>{{v.cat_name}}</span>
-                </a>
-                {{/each}}
-            </div>
-        </div>
-        {{/each}}
-    </script>
     <script src="../lib/mui/js/mui.min.js"></script>
     <script src="../lib/zepto/zepto.js"></script>
     <script src="../lib/arttemplate/template-web.js"></script>
-    <script src="../lib/iscroll/iscroll.js"></script>
     <script src="../js/common.js"></script>
-    <script src="../js/category.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 
 </html>

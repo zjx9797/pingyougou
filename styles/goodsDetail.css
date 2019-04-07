@@ -146,87 +146,49 @@ ul {
   z-index: 101;
   animation: fa-spin 1s infinite linear;
 }
-.pyg_header {
-  background-color: skyblue;
-  padding: 0;
+.pyg_content {
+  padding: 10px;
+  padding-top: 45px;
 }
-.pyg_header .mui-icon {
-  color: #fff;
-  font-weight: 700;
+.pyg_content .goods_name {
+  font-size: 14px;
 }
-.pyg_content .ssbc {
-  padding-left: 5px;
+.pyg_content .goods_price {
+  font-size: 20px;
+  color: orange;
 }
-.pyg_content .ssbc > span {
-  margin-top: 10px;
-  display: inline-block;
-  width: 35px;
-  text-align: center;
-  line-height: 25px;
-  color: skyblue;
-  border: 1px solid #ccc;
-  margin-right: 8px;
-  margin-bottom: 6px;
+.pyg_content .goods_post > li {
+  display: flex;
+  border-bottom: 1px solid #666;
+  padding: 6px 0;
+  font-size: 14px;
 }
-.pyg_content .qingchu .qingchu_btn {
-  margin-left: 6px;
-  background-color: #ccc;
+.pyg_content .goods_post > li > span:nth-of-type(1) {
+  flex: 1;
+  color: #aaa;
+}
+.pyg_content .goods_post > li > span:nth-of-type(2) {
+  flex: 4;
   color: #333;
 }
-.pyg_content .search_bar {
-  height: 40px;
-  padding: 5px;
-  position: relative;
-}
-.pyg_content .search_bar > .query_txt {
-  height: 30px;
+.pyg_content .goodsPara ul li .attr_title {
   width: 100%;
-  border: none;
-  border: 1px solid #ccc;
-  margin: 0;
-  padding: 0;
+  border-bottom: 1px solid #333;
+  line-height: 40px;
 }
-.pyg_content .search_bar > .query_btn {
-  width: 60px;
-  height: 30px;
-  position: absolute;
-  top: 5px;
-  right: 0;
-  padding: 0;
-}
-.pyg_content .searchList > a {
-  display: block;
-  width: 100%;
-  font-size: 14px;
-  color: skyblue;
-  margin-bottom: 3px;
-  margin-left: 4px;
-}
-.pyg_content .goodslist > li {
-  width: 100%;
-  margin-bottom: 5px;
-}
-.pyg_content .goodslist > li > a {
+.pyg_content .goodsPara ul li .attr_content {
   display: flex;
+  font-size: 13px;
+  line-height: 30px;
+}
+.pyg_content .goodsPara ul li .attr_content > span:nth-of-type(1) {
+  flex: 1;
+}
+.pyg_content .goodsPara ul li .attr_content > span:nth-of-type(2) {
+  flex: 3;
+}
+.pyg_footer .mui-btn {
   width: 100%;
-  background-color: #fff;
-}
-.pyg_content .goodslist > li > a > div {
-  width: 50%;
-}
-.pyg_content .goodslist > li > a > div:nth-of-type(1) {
-  padding: 5px 0;
-}
-.pyg_content .goodslist > li > a > div:nth-of-type(1) > img {
-  width: 80%;
-  display: block;
-  margin: auto;
-}
-.pyg_content .goodslist > li > a > div:nth-of-type(2) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.pyg_content .goodslist > li > a > div:nth-of-type(2) span {
-  word-break: break-all;
+  height: 100%;
+  border-radius: 0;
 }
