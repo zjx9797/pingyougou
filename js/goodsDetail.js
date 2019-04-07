@@ -25,13 +25,14 @@ $(function () {
     })
     //点解购物车事件
     $('.gocar').on('tap', function () {
+        $(".gocar").attr("disabled", "disabled");       //点击一次后禁止按钮点击
         //获取token值
         var token = sessionStorage.getItem('pyg_token');
         //如果没有token值则保存此时网址再跳转到登录页面
         if (!token) {
-            sessionStorage.setItem('redirectUrl',location.href);
+            sessionStorage.setItem('redirectUrl', location.href);
             location.href = './login.html';
-        } else {    
+        } else {
             $.ajax({
                 type: 'post',
                 url: 'my/cart/add',
@@ -39,21 +40,22 @@ $(function () {
                 dataType: 'json',
                 success: function (result) {
                     console.log(result);
-                    if (result.meta.status == 401) {   //如果有token值则发起ajax请求
-                        sessionStorage.setItem('redirectUrl',location.href);
+                    if (result.meta.status == 401) { //如果有token值则发起ajax请求
+                        sessionStorage.setItem('redirectUrl', location.href);
                         location.href = './login.html';
-                    } else {        //如果有token值则为登录过了，执行添加成功后的操作
+                    } else { //如果有token值则为登录过了，执行添加成功后的操作
                         var btnArray = ['是', '否'];
-                        mui.confirm('添加成功，是否需要跳转到购物车？', '尊敬的用户', btnArray, function (e) {
+                        mui.confirm('添加成功，是否需要跳转到购物车？', '尊敬的有钱人', btnArray, function (e) {
                             if (e.index == 0) {
-                                alert('你确认了');
+                                alert('土豪');
                             } else {
-                                alert('你取消了');
+                                alert('穷鬼');
                             }
                         })
                     }
                 }
             })
+            $(".gocar").removeAttr("disabled"); //清除禁止按钮操作
         }
     })
 })
