@@ -36,7 +36,7 @@ $(function () {
             $.ajax({
                 type: 'post',
                 url: 'my/cart/add',
-                data: JSON.stringify(info),
+                data: {info:JSON.stringify(info)},
                 dataType: 'json',
                 success: function (result) {
                     console.log(result);
@@ -47,9 +47,8 @@ $(function () {
                         var btnArray = ['是', '否'];
                         mui.confirm('添加成功，是否需要跳转到购物车？', '尊敬的有钱人', btnArray, function (e) {
                             if (e.index == 0) {
-                                alert('土豪');
+                                location.href='cart.html';
                             } else {
-                                alert('穷鬼');
                             }
                         })
                     }

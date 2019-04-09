@@ -19,8 +19,6 @@ $(function(){
             dataType:'json',
             success:function(result) {
                 callback(result);
-                console.log(result);
-                
             }
         })
     }
