@@ -9,7 +9,7 @@ $(function () {
         obj.username = $('.username').val();
         obj.password = $('.password').val();
         //正则表达式判断手机号错误就跳出
-        if (!/^1[39]\d{9}$/.test(obj.username)) {
+        if (!/^1[3-9]\d{9}$/.test(obj.username)) {
             mui.toast('手机号格式错误');
             return;
         }
