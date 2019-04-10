@@ -43,4 +43,7 @@ $(function () {
             }
         })
     })
+    $('.mui-btn-danger').on('tap',function() {
+        location.href='register.html'
+    })
 })

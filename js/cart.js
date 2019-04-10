@@ -10,15 +10,20 @@ $(function () {
             url: 'my/cart/all',
             dataType: 'json',
             success: function (result) {
-                // console.log(result);
-                var data = JSON.parse(result.data.cart_info);
-                // console.log(data);
-                var html = template('orderTemp', {
-                    list: data
-                });
-                $('.cart_order_content').html(html);
-                mui('.mui-numbox').numbox(); //将商品数量按钮初始化
-                pricenum(); //执行计算总金额事件
+                console.log(result);
+                if(result.meta.status==200) {
+                    var data = JSON.parse(result.data.cart_info);
+                    // console.log(data);
+                    var html = template('orderTemp', {
+                        list: data
+                    });
+                    $('.cart_order_content').html(html);
+                    mui('.mui-numbox').numbox(); //将商品数量按钮初始化
+                    pricenum(); //执行计算总金额事件
+                }else {
+                    location.href='login.html';
+                }
+                
             }
         })
     }
