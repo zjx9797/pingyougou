@@ -130,10 +130,7 @@ $(function () {
             dataType: 'json',
             success: function (result) {
                 console.log(result);
-                mui.toast(result.meta.msg);
-                setTimeout(() => {
-                    location.href='./orderlist.html'
-                }, 1000);
+                location.href='./orderlist.html'
             }
         })
     })
