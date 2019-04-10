@@ -173,6 +173,11 @@ ul {
   font-size: 25px;
   line-height: 41px;
 }
+.pyg_content .mui-scroll-wrapper .mui-scroll .cart_address .cart_addr_content .btn-map {
+  line-height: 40px;
+  margin-right: 10px;
+  font-size: 15px;
+}
 .pyg_content .mui-scroll-wrapper .mui-scroll .cart_address .cart_addr_content .addr_content_right {
   flex: 5;
   display: flex;

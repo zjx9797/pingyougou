@@ -11,7 +11,7 @@ $(function () {
             dataType: 'json',
             success: function (result) {
                 console.log(result);
-                if(result.meta.status==200) {
+                if (result.meta.status == 200) {
                     var data = JSON.parse(result.data.cart_info);
                     // console.log(data);
                     var html = template('orderTemp', {
@@ -20,10 +20,10 @@ $(function () {
                     $('.cart_order_content').html(html);
                     mui('.mui-numbox').numbox(); //将商品数量按钮初始化
                     pricenum(); //执行计算总金额事件
-                }else {
-                    location.href='login.html';
+                } else {
+                    location.href = 'login.html';
                 }
-                
+
             }
         })
     }
@@ -44,14 +44,16 @@ $(function () {
             if (e.index == 0) {
                 var dataarr = $('.checkeda').not(":checked").parent().parent(); //将没有点复选框的节点选中
                 $('body').toggleClass('eleToggle'); //切换body的类使之隐藏和显示
-                $('.pyg_orderEdit').text('编辑');   //改变为编辑
-                synccart(dataarr);                  //执行同步购物车
+                $('.pyg_orderEdit').text('编辑'); //改变为编辑
+                synccart(dataarr); //执行同步购物车
             }
         })
     })
     //计算总金额事件
+    var num;
+
     function pricenum() {
-        var num = 0;
+        num = 0;
         $('.order_content_list').each(function (index, value) {
             // console.log(index,value);
             var price = $(value).data('order').goods_price;
@@ -85,11 +87,54 @@ $(function () {
                 // console.log(result);
                 if (result.meta.status == 200) { //成功则显示成功
                     mui.toast('修改成功');
-                    init();         //再发起请求渲染页面
+                    init(); //再发起请求渲染页面
                 } else { //失败则显示原因
                     mui.toast(result.meta.msg);
                 }
             }
         })
     }
+
+    $('.btn-map').on('tap', function () {
+        var picker = new mui.PopPicker({
+            layer: 3
+        });
+        picker.setData(data);
+        picker.show(function (items) {
+            console.log(items[2]);
+            if (!items[2]) {
+                $('.useradress').text(items[0].text + "-" + items[1].text);
+            } else {
+                $('.useradress').text(items[0].text + "-" + items[1].text + "-" + items[2].text);
+            }
+        })
+    })
+    $('.cp_order_btn').on('tap', function () {
+        var obj = {
+            "order_price": num,
+            "consignee_addr": $('.useradress').text(),
+            "goods": []
+        }
+        $('.order_content_list').each(function (index, value) {
+            var singer = {}
+            var temp = $(value).data('order');
+            singer.goods_id = temp.goods_id
+            singer.amout = temp.amount
+            singer.goods_price = temp.goods_price
+            obj.goods.push(singer)
+        })
+        $.ajax({
+            type: 'post',
+            url: 'my/orders/create',
+            data: obj,
+            dataType: 'json',
+            success: function (result) {
+                console.log(result);
+                mui.toast(result.meta.msg);
+                setTimeout(() => {
+                    location.href='./orderlist.html'
+                }, 1000);
+            }
+        })
+    })
 })
